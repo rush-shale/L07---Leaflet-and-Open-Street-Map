@@ -8,7 +8,7 @@ class LeafletMap {
     initTileLayer() {
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors| From BSIT Student'
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(this.map);
     }
 
@@ -17,11 +17,6 @@ class LeafletMap {
         marker.bindPopup(message);
     }
 
-    dataccsfacultyoffice() {
-        this.addMarker( 8.3597307, 124.8691919, 'ccs faculty office');
-        this.updateLogDisplay();
-    }
-    
     loadMarkersFromJson(url) {
         fetch(url)
             .then(response => response.json())
@@ -36,4 +31,10 @@ class LeafletMap {
 
 const myMap = new LeafletMap('map', [8.360004, 124.868419], 18);
 
-myMap.loadMarkersFromJson('applet2.json');
+/*
+myMap.addMarker(8.359735, 124.869206, 'CCS Faculty Office');
+myMap.addMarker(8.359639,124.869179, 'CCS Laboratory 1');
+myMap.addMarker(8.359554,124.869153, 'CCS Laboratory 2');
+*/
+
+myMap.loadMarkersFromJson('applet-2.json');
